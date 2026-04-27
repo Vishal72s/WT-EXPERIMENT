@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8">
+<title>Login</title>
+<style>
+* { box-sizing: border-box; }
+body {
+    font-family: Arial;
+    background: ivory;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.container {
+    background: white;
+    padding: 25px;
+    width: 350px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px gray;
+}
+input {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+}
+button {
+    width: 100%;
+    padding: 10px;
+    background: #43e97b;
+    color: white;
+    border: none;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<h2>Sign in</h2>
+<form onsubmit="return validateLogin()">
+<input type="text" id="loginEmail" placeholder="Email address">
+<input type="password" id="loginPassword" placeholder="Password">
+<button type="submit">Sign in</button>
+</form>
+<p id="loginMessage" style="color:red;"></p>
+<p>New here? <a href="register.html">Create an account</a></p>
+</div>
+<script>
+function validateLogin() {
+    let email = document.getElementById("loginEmail").value;
+    let password = document.getElementById("loginPassword").value;
+    let storedEmail = localStorage.getItem("userEmail");
+    let storedPassword = localStorage.getItem("userPassword");
+    if (email === "" || password === "") {
+        loginMessage.innerHTML = "Please complete every field.";
+        return false;
+    }
+    if (email === storedEmail && password === storedPassword) {
+        alert("Signed in successfully!");
+        window.location.href = "index.html";
+        return false;
+    } else {
+        loginMessage.innerHTML = "Email or password is incorrect.";
+        return false;
+    }
+}
+</script>
+</body>
+</html>

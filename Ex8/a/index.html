@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Website</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+    h2 {
+        color: darkgreen;
+        text-align: center;
+    }
+    hr {
+        border: 2px solid gray;
+    }
+</style>
+</head>
+<body style="background-color: #e6f7ff;">
+    <h1>Welcome to my personal website</h1>
+    <hr>
+    <nav>
+        <a href="index.html">home</a><br><br>
+        <a href="about.html">about</a><br><br>
+        <a href="education.html">education</a><br><br>
+        <a href="contact.html">contact</a><br><br>
+        <a href="#" onclick="openCalculator()">Calculator</a> 
+    </nav>
+    <hr>
+    <p style="color: purple;">Hello everyone!</p>
+    <p>My name is <b>Vishal Sharma</b>.</p> 
+    <p>This homepage introduces the rest of my portfolio.</p>
+    <h2>Registration Form</h2>
+
+    <form action="form.php" method="POST">
+        Name: <input type="text" name="name"><br><br>
+        Email: <input type="text" name="email"><br><br>
+        Password: <input type="password" name="password"><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <!-- Calculator Popup -->
+    <div id="calculator" class="calculator">
+    <div class="calc-header">
+        <span>Scientific Calculator</span>
+        <button onclick="closeCalculator()">X</button>
+    </div>
+    <input type="text" id="display" disabled>
+    <div class="buttons">
+        <button onclick="press('7')">7</button>
+        <button onclick="press('8')">8</button>
+        <button onclick="press('9')">9</button>
+        <button onclick="press('/')">/</button>
+        <button onclick="press('4')">4</button>
+        <button onclick="press('5')">5</button>
+        <button onclick="press('6')">6</button>
+        <button onclick="press('*')">*</button>
+        <button onclick="press('1')">1</button>
+        <button onclick="press('2')">2</button>
+        <button onclick="press('3')">3</button>
+        <button onclick="press('-')">-</button>
+        <button onclick="press('0')">0</button>
+        <button onclick="press('.')">.</button>
+        <button onclick="calculate()">=</button>
+        <button onclick="press('+')">+</button>
+        <button onclick="scientific('sin')">sin</button>
+        <button onclick="scientific('cos')">cos</button>
+        <button onclick="scientific('tan')">tan</button>
+        <button onclick="scientific('sqrt')">√</button>
+        <button onclick="scientific('log')">log</button>
+        <button onclick="scientific('pow')">x²</button>
+        <button onclick="clearDisplay()">C</button>
+    </div>
+</div>
+<script>
+function openCalculator() {
+    document.getElementById("calculator").style.display = "block";
+}
+function closeCalculator() {
+    document.getElementById("calculator").style.display = "none";
+}
+function press(val) {
+    document.getElementById("display").value += val;
+}
+function calculate() {
+    let result = eval(document.getElementById("display").value);
+    document.getElementById("display").value = result;
+}
+function clearDisplay() {
+    document.getElementById("display").value = "";
+}
+function scientific(func) {
+    let value = parseFloat(document.getElementById("display").value);
+    if (func === "sin") {
+        document.getElementById("display").value = Math.sin(value);
+    }
+    else if (func === "cos") {
+        document.getElementById("display").value = Math.cos(value);
+    }
+    else if (func === "tan") {
+        document.getElementById("display").value = Math.tan(value);
+    }
+    else if (func === "sqrt") {
+        document.getElementById("display").value = Math.sqrt(value);
+    }
+    else if (func === "log") {
+        document.getElementById("display").value = Math.log10(value);
+    }
+    else if (func === "pow") {
+        document.getElementById("display").value = Math.pow(value, 2);
+    }
+}
+</script>
+</body>
+</html>

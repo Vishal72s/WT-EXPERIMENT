@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+    h2 {
+        color: darkblue;
+        text-align: center;
+    }
+    img {
+        border-radius: 10px;
+    }
+    form {
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+<header style="border-bottom: 4px solid black;">
+    <h1>E-commerce</h1>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header><hr>
+<section id="home" style="text-align:center;">
+    <h2>Welcome to E-commerce</h2>
+</section><hr>
+<section id="products">
+    <h2>Our Products</h2>
+    <div class="product-container">
+    <article style="box-shadow: 0 0 10px gray;">
+        <figure>
+            <img src="smartphone.jpg" alt="Smart Phone" height="300px">
+            <figcaption><strong>Smart Phone</strong></figcaption>
+        </figure>
+        <p style="color: green;">Price: ₹1,49,999</p>
+        <button>Add to cart</button>
+    </article>
+    <article style="box-shadow: 0 0 10px gray;">
+        <figure>
+            <img src="smartwatch.jpg" alt="Smart Watch" height="300px">
+            <figcaption><strong>Smart Watch</strong></figcaption>
+        </figure>
+        <p style="color: green;">Price: ₹3,999</p>
+        <button>Add to cart</button>
+    </article>
+    <article style="box-shadow: 0 0 10px gray;">
+        <figure>
+            <img src="laptop.jpg" alt="Laptop" height="300px">
+            <figcaption><strong>Laptop</strong></figcaption>
+        </figure>
+        <p style="color: green;">Price: ₹1,53,999</p>
+        <button>Add to cart</button>
+    </article>
+    </div>
+</section><hr>
+<section id="about">
+    <h2>About Us</h2>
+    <p style="text-align: center;">
+           This sample storefront keeps the presentation simple and easy to follow.
+           It is designed to show the structure of a product and contact page.
+    </p>
+</section><hr>
+<section id="contact">
+    <h2>Contact Us</h2>
+   <form action="#" style="background-color:white; padding:20px; border-radius:10px;">     
+            <caption>feedback form</caption>
+            <br><br>
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="4" required></textarea><br><br>
+            <button type="submit">Submit</button>     
+    </form>
+</section><hr>
+<form action="../Ex9/insert.php" method="POST">
+
+    Product Name: <input type="text" name="name"><br><br>
+    Price: <input type="text" name="price"><br><br>
+    Description: <input type="text" name="description"><br><br>
+
+    <input type="submit" value="Add Product">
+
+</form>
+<footer style="margin-top:20px;">
+    <address>
+           Contact: vishalsharmavs.75680980899@gmail.com<br>
+           Location: India
+    </address>
+</footer>
+</body>
+</html>

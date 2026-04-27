@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8">
+<title>Create Account</title>
+<style>
+* { box-sizing: border-box; }
+body {
+    font-family: Arial;
+    background: ivory;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.container {
+    background: white;
+    padding: 25px;
+    width: 350px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px gray;
+}
+input {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+}
+button {
+    width: 100%;
+    padding: 10px;
+    background: #4facfe;
+    color: white;
+    border: none;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<h2>Create Account</h2>
+<form onsubmit="return validateRegister()">
+<input type="text" id="name" placeholder="Full name">
+<input type="text" id="email" placeholder="Email address">
+<input type="password" id="password" placeholder="Password">
+<input type="password" id="confirmPassword" placeholder="Confirm password">
+<button type="submit">Create account</button>
+</form>
+<p id="message" style="color:red;"></p>
+<p>Already have an account? <a href="login.html">Sign in</a></p>
+</div>
+<script>
+function validateRegister() {
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+    let confirmPassword = document.getElementById("confirmPassword").value;
+    if (name === "") {
+        message.innerHTML = "Please enter your name.";
+        return false;
+    }
+    if (!email.includes("@")) {
+        message.innerHTML = "Please use a valid email address.";
+        return false;
+    }
+    if (password.length < 6) {
+        message.innerHTML = "Password should be at least 6 characters.";
+        return false;
+    }
+    if (password !== confirmPassword) {
+        message.innerHTML = "Passwords do not match.";
+        return false;
+    }
+    localStorage.setItem("userEmail", email);
+    localStorage.setItem("userPassword", password);
+    alert("Account created successfully!");
+    window.location.href = "login.html";
+    return false;
+}
+</script>
+</body>
+</html>

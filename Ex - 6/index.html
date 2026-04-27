@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+    h2 {
+        color: darkblue;
+        text-align: center;
+    }
+    img {
+        border-radius: 10px;
+    }
+    form {
+        text-align: center;
+    }
+    </style>
+</head>
+<body>
+<header>
+    <h1>E-commerce</h1>
+    <nav>
+        <ul class="nav-left">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <ul class="nav-right" id="navRight"></ul>
+    </nav>
+</header>
+<hr>
+<section id="home">
+    <h2>Welcome to E-commerce</h2>
+    <h3 id="welcome" style="text-align:center;"></h3>
+</section><hr>
+<section id="products">
+    <h2>Our Products</h2>
+    <div class="product-container">
+        <article>
+            <img src="smartphone.jpg" height="300">
+            <p><strong>Smart Phone</strong></p>
+            <p style="color: green;">₹1,49,999</p>
+            <button>Add to cart</button>
+        </article>
+        <article>
+            <img src="smartwatch.jpg" height="300">
+            <p><strong>Smart Watch</strong></p>
+            <p style="color: green;">₹3,999</p>
+            <button>Add to cart</button>
+        </article>
+        <article>
+            <img src="laptop.jpg" height="300">
+            <p><strong>Laptop</strong></p>
+            <p style="color: green;">₹1,53,999</p>
+            <button>Add to cart</button>
+        </article>
+    </div>
+</section><hr>
+<section id="about">
+    <h2>About Us</h2>
+    <p style="text-align:center;">
+        E-commerce is an online platform providing quality electronic products.
+    </p>
+</section><hr>
+<section id="contact">
+    <h2>Contact Us</h2>
+    <form style="background:white; padding:20px; border-radius:10px;">
+        <label>Name:</label><br>
+        <input type="text"><br><br>
+        <label>Email:</label><br>
+        <input type="email"><br><br>
+        <label>Message:</label><br>
+        <textarea rows="4"></textarea><br><br>
+        <button type="submit">Submit</button>
+    </form>
+</section><hr>
+<footer>
+       <p>Contact: vishalsharmavs.75680980899@gmail.com</p>
+       <p>Location: India</p>
+</footer>
+<script>
+window.onload = function () {
+    let user = localStorage.getItem("userEmail");
+    if (!user) {
+        alert("Please login first!");
+        window.location.href = "login.html";
+    } else {
+        document.getElementById("welcome").innerHTML = "Welcome, " + user;
+        document.getElementById("navRight").innerHTML ='<li><a href="#" onclick="logout()">Logout</a></li>';
+    }
+};
+function logout() {
+    localStorage.clear();
+    alert("Logged out successfully!");
+    window.location.href = "login.html";
+}
+</script>
+</body>
+</html>
